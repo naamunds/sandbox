@@ -1,5 +1,5 @@
-﻿{
-  "userSecretsId": "aspnet-MvcMovie-448806be-5baf-43eb-b0f1-b864b9925479",
+{
+  "userSecretsId": "aspnet-MvcMovie-4c4d6dde-ca90-4312-9703-267386c6bafb",
 
   "dependencies": {
     "Microsoft.NETCore.App": {
@@ -18,8 +18,8 @@
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
-    "Microsoft.EntityFrameworkCore.SqlServer.Design": {
+    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0",
+    "Microsoft.EntityFrameworkCore.Sqlite.Design": {
       "version": "1.0.0",
       "type": "build"
     },
@@ -29,6 +29,7 @@
     },
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
+    "Microsoft.Extensions.Configuration.CommandLine": "1.0.0",
     "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0",
     "Microsoft.Extensions.Logging": "1.0.0",
     "Microsoft.Extensions.Logging.Console": "1.0.0",
@@ -90,7 +91,12 @@
   },
 
   "scripts": {
-    "prepublish": [ "bower install", "dotnet bundle" ],
+    "precompile": [ "dotnet bundle" ],
+    "prepublish": [ "bower install" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+  },
+
+  "tooling": {
+    "defaultNamespace": "MvcMovie"
   }
 }
