@@ -1,0 +1,15 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+     - "35000:5000"
+    links:
+     - mysqlserver
+  mysqlserver:
+    image: mysql
+    environment:
+     - MYSQL_DATABASE=MvcMovie
+     - MYSQL_USER=naamunds
+     - MYSQL_PASSWORD=magicPassword
+     - MYSQL_ROOT_PASSWORD=theRootPassword
